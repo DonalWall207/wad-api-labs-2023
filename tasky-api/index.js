@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import tasksRouter from './api/tasks';
 import './db';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -27,5 +28,7 @@ app.listen(port, () => {
   };
 
   app.use(errHandler);
+
+  app.use(cors());
   
 });
