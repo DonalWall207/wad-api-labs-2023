@@ -1,10 +1,7 @@
 import express from 'express';
 import User from './userModel';
-import usersRouter from './api/users';
 
 const router = express.Router(); // eslint-disable-line
-
-app.use('/api/users', usersRouter);
 
 // Get all users
 router.get('/', async (req, res) => {
@@ -30,6 +27,7 @@ router.post('/', async (req, res) => {
         }
     }
 });
+
 // Update a user
 router.put('/:id', async (req, res) => {
     if (req.body._id) delete req.body._id;
