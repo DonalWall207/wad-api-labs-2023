@@ -5,7 +5,7 @@ import usersRouter from './api/users';
 import './db';
 import defaultErrHandler from './errHandler';
 import moviesRouter from './api/movies';   //import movies router
-import authenticate from './authenticate';
+import authenticate from './api/authenticate';
 
 dotenv.config();
 
@@ -16,8 +16,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/users', usersRouter);
 app.use(defaultErrHandler);
-app.use('/api/movies', moviesRouter);
-app.use('/api/movies',authenticate,  moviesRouter);
+app.use('/api/movies', authenticate, moviesRouter);
+
 
 
 app.listen(port, () => {
