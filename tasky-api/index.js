@@ -12,6 +12,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/tasks', tasksRouter);
 app.use('/api/users', usersRouter);
@@ -31,7 +32,5 @@ app.listen(port, () => {
   };
 
   app.use(errHandler);
-
-  app.use(cors());
   
 });
